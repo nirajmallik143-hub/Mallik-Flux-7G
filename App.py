@@ -1,4 +1,3 @@
-`python
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -30,8 +29,3 @@ st.map(map_data)
 st.write("---")
 st.write("Proprietary 7G Logic is running. Prepared for humanitarian and commercial deployment.")
 `
-
-4. Scroll down and click the green "Commit changes..." button.
-
----
-
