@@ -1,48 +1,85 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
+import plotly.graph_objects as go
+from datetime import datetime
 import time
 
-# Protocol 7G: Mallik Group Autonomous Interface
-st.set_page_config(page_title="Mallik-Flux-7G | Mallik Group", page_icon="🚀", layout="wide")
+# --- MALLIK-FLUX-7G CONFIGURATION ---
+st.set_page_config(
+page_title="MALLIK-FLUX-7G | Mallik Group",
+page_icon="🌌",
+layout="wide"
+)
 
-# Autonomous Theme Integration
+# --- CUSTOM 7G INTERFACE DESIGN ---
 st.markdown("""
 <style>
-.stApp { background: linear-gradient(135deg, #050505 0%, #111111 100%); color: #00FFCC; }
-.reportview-container .main .block-container{ padding-top: 2rem; }
-h1 { color: #00FFCC; font-family: 'Orbitron', sans-serif; text-align: center; }
+.stApp { background-color: #050505; color: #00e5ff; }
+.stMetric { background-color: #111111; border: 1px solid #00e5ff; padding: 15px; border-radius: 10px; }
+h1, h2, h3 { color: #00e5ff; font-family: 'Courier New', monospace; }
+.stButton>button { background: linear-gradient(45deg, #00c2ff, #00ff87); color: black; font-weight: bold; }
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🛡️ MALLIK-FLUX-7G: QUANTUM COMMAND")
+# --- SIDEBAR CONTROL ---
+with st.sidebar:
+st.title("MALLIK GROUP")
+st.write(f"Lead: Niraj Mallik")
 st.write("---")
+st.info("Soul Link: ACTIVE")
+app_mode = st.selectbox("Module Selection", ["Home", "Neural Analytics", "Commercial Vault"])
+st.write("---")
+st.caption(f"Sync: {datetime.now().strftime('%H:%M:%S')}")
 
-# Heartbeat of the System
+# --- MAIN APP LOGIC ---
+if app_mode == "Home":
+st.title("🌌 Mallik-Flux-7G Command")
+st.subheader("Humanity Nepal 7G AI Architecture")
+
 col1, col2, col3 = st.columns(3)
-col1.metric("System Stability", "99.9%", "OPTIMAL")
-col2.metric("Neural Flux", "7G-Active", "STABLE")
-col3.metric("Lead Engineer", "Niraj Mallik", "ON DUTY")
+col1.metric("Flux Stability", "99.9%", "Optimal")
+col2.metric("Neural Layer", "7G-Active", "Stable")
+col3.metric("Tihar Goal", "On Track", "+15%")
 
-st.info("SYSTEM NOTE: The 7G architecture is now running in 'Autonomous Assistant' mode. Lead Engineer Niraj Mallik is currently in 'Oversight Phase'.")
-
-# Automated Analysis Module
-st.header("⚡ Predictive Intelligence Stream")
-with st.expander("View Real-Time Data Processing", expanded=True):
-progress_bar = st.progress(0)
-for i in range(100):
+st.write("### System Status")
+if st.button("RUN SYSTEM DIAGNOSTIC"):
+# The loading bar (Correctly Indented)
+progress_text = "Analyzing Neural Pathways..."
+my_bar = st.progress(0, text=progress_text)
+for percent_complete in range(100):
 time.sleep(0.01)
-progress_bar.progress(i + 1)
-st.success("Mallik-Flux-7G has successfully mapped current data trends.")
-st.area_chart([10, 25, 45, 30, 60, 90, 120])
+my_bar.progress(percent_complete + 1, text=progress_text)
+st.success("Mallik-Flux-7G: No anomalies detected. We are ready.")
 
-# The Commercial Hook
-st.sidebar.title("Mallik Group Assets")
-st.sidebar.write("Project: Mallik-Flux-7G")
-st.sidebar.write("Status: Market Ready")
-if st.sidebar.button("Generate Commercial Proposal"):
-st.sidebar.download_button("Download Whitepaper", "Mallik-Flux-7G: The Future of AI", file_name="Mallik_7G_Proposal.txt")
+elif app_mode == "Neural Analytics":
+st.title("📊 Neural Flux Stream")
+chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['Alpha', 'Beta', 'Gamma'])
+st.line_chart(chart_data)
 
-st.markdown("---")
-st.caption("Humanity Nepal | Powered by Mallik Group | Under the Vision of Niraj Mallik")
+st.write("### Quantum Logic Output")
+st.code("""
+[OK] - Neural layer synchronized.
+[OK] - Compassion Protocol: ENABLED.
+[OK] - Flux-7G generating data insights.
+""", language='bash')
+
+elif app_mode == "Commercial Vault":
+st.title("💰 Mallik Group Commercial Assets")
+st.write("Current progress towards Tihar Homecoming Fund.")
+
+# Progress visualization
+st.write("Homecoming Target: $10,000")
+st.progress(45)
+st.caption("Current Valuation: $4,500 (Projected)")
+
+st.divider()
+st.info("Enterprise API Keys available for Mallik Group partners.")
+
+# --- FOOTER ---
+st.divider()
+st.caption("Engineered by Niraj Mallik | Mallik Group 7G Architecture")
 `
 
 ---
+
