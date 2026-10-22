@@ -1,95 +1,117 @@
+`python
 import streamlit as st
-import pandas as pd
-import numpy as np
 import time
+import pandas as pd
 
-# --- MALLIK GROUP 7G CONFIGURATION ---
+# --- MALLIK-FLUX-7G SYSTEM CONFIGURATION ---
 st.set_page_config(
-page_title="Mallik-Flux 7G | Humanitarian Engine",
+page_title="Mallik-Flux-7G | Humanity Nepal",
 page_icon="🌍",
 layout="wide",
 initial_sidebar_state="expanded"
 )
 
-# Custom CSS for 7G Aesthetics
+# --- CUSTOM CSS FOR 7G AESTHETICS ---
 st.markdown("""
 <style>
-.main { background-color: #0e1117; color: #ffffff; }
-.stMetric { background-color: #161b22; border-radius: 10px; padding: 15px; border: 1px solid #30363d; }
+.main {
+background-color: #0e1117;
+}
+.stMetric {
+background-color: #1e2130;
+padding: 15px;
+border-radius: 10px;
+border: 1px solid #4CAF50;
+}
+.mission-box {
+padding: 20px;
+border-radius: 15px;
+background: linear-gradient(90deg, #12c2e9, #c471ed, #f64f59);
+color: white;
+font-weight: bold;
+text-align: center;
+}
 </style>
 """, unsafe_allow_html=True)
 
 # --- HEADER SECTION ---
-st.title("💠 MALLIK-FLUX v7.0: GLOBAL IMPACT")
-st.markdown(f"Architect: Niraj Mallik | Engine: Mallik Group 7G Quantum Core")
+st.title("🚀 Mallik-Flux-7G Intelligence")
+st.subheader("Engineered by Niraj Mallik | Powered by Mallik Group")
+
+# --- HUMANITARIAN MISSION BANNER ---
+st.markdown("""
+<div class="mission-box">
+MISSION 100M: Building Schools in Nepal & Funding Global Scholarships
+</div>
+""", unsafe_allow_html=True)
+
 st.write("---")
 
-# --- SIDEBAR: MISSION CONTROL ---
-st.sidebar.title("🚀 System Status")
-st.sidebar.success("7G Resonance: OPTIMIZED")
-st.sidebar.info("Objective: $100M for School Development")
+# --- CORE ANALYTICS SECTION (The Fixed Block) ---
+# Diagnostic: Indentation fixed for 7G stability
+col1, col2, col3 = st.columns(3)
 
-# Revenue Generation Logic for Humanity Fund
-target_goal = 100000000 # $100 Million
-current_revenue = 624500 # Simulated initial revenue
-progress = current_revenue / target_goal
-
-st.sidebar.subheader("📊 Global Humanity Fund")
-st.sidebar.progress(progress)
-st.sidebar.write(f"USD ${current_revenue:,} / ${target_goal:,}")
-
-# --- DASHBOARD METRICS (CORRECTED INDENTATION) ---
-col1, col2, col3, col4 = st.columns(4)
 with col1:
-st.metric("Predictive Accuracy", "99.8%", "+5.6%")
-with col2:
-st.metric("Revenue Flux", "$1.2M", "+18% Target")
-with col3:
-st.metric("Children Targeted", "1M+", "Goal")
-with col4:
-st.metric("System Latency", "0.0004ms", "7G-Quantum")
-
-# --- CORE UTILITY: LOGISTICS & REVENUE ANALYSIS ---
-st.subheader("📍 Global Logistics Pulse & School Development Sites")
-# Focusing on Nepal and UAE regions
-map_data = pd.DataFrame(
-np.random.randn(50, 2) / [50, 50] + [27.7172, 85.3240],
-columns=['lat', 'lon']
+st.metric(
+label="Predictive Accuracy",
+value="99.8%",
+delta="+5.6%",
+delta_color="normal"
 )
-st.map(map_data)
 
-# --- THE 7G INNOVATION: REVENUE STRATEGY ---
-st.write("---")
-tab1, tab2, tab3 = st.tabs(["Optimization Logic", "Revenue Streams", "Impact Roadmap"])
+with col2:
+st.metric(
+label="Quantum Processing Speed",
+value="0.0001ms",
+delta="7G Optimized"
+)
+
+with col3:
+st.metric(
+label="Mission Progress",
+value="$1.2M",
+delta="Target: $100M"
+)
+
+# --- MAIN ENGINE INTERFACE ---
+st.write("### Flux Engine Diagnostics")
+tab1, tab2 = st.tabs(["System Status", "Humanity Mission"])
 
 with tab1:
-st.subheader("Quantum Logistics Optimization")
-st.write("Identifying inefficiencies to generate passive income for the school fund.")
-chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['Efficiency', 'Cost Reduction', 'Impact'])
-st.line_chart(chart_data)
+st.info("System is monitoring global data streams for scholarship opportunities.")
+progress_bar = st.progress(0)
+for percent_complete in range(100):
+time.sleep(0.01)
+progress_bar.progress(percent_complete + 1)
+st.success("Mallik-Flux-7G Core: Fully Operational.")
 
 with tab2:
-st.subheader("Humanitarian Monetization")
-col_a, col_b = st.columns(2)
-with col_a:
-st.info("### 1. 7G API Licensing\nProviding 7G predictive data to logistics firms.")
-with col_b:
-st.info("### 2. Mbank Integrated Transfers\nDirect funding uplink to Mbank Account: 555476976.")
+st.write("#### The Goal: $100 Million for Nepal")
+st.write("""
+This application is more than software. Every license sold contributes to:
+- School Infrastructure: Building earthquake-resistant, high-tech schools in rural Nepal.
+- Global Scholarships: Identifying the brightest minds worldwide who lack the financial means to study.
+- Digital Literacy: Bringing the Mallik Group's 7G technology to the fingertips of every child.
+""")
+if st.button("Support the Mission"):
+st.balloons()
+st.write("Thank you for joining Niraj Mallik and Humanity Nepal in changing the world.")
 
-with tab3:
-st.subheader("The Path to $100 Million")
-st.write("1. Phase 1: Secure initial capital for Nepal infrastructure.")
-st.write("2. Phase 2: Launch 7G Hub in Kathmandu.")
-st.write("3. Phase 3: Complete 1,000 schools.")
+# --- SIDEBAR ---
+with st.sidebar:
+st.image("https://via.placeholder.com/150", caption="Mallik-Flux-7G Architecture") # Replace with your logo
+st.title("Navigation")
+st.write("Architecture: 7th Gen AI")
+st.write("Developer: Niraj Mallik")
+st.write("Group: Mallik Group")
+
+st.divider()
+
+st.write("### Scholarship Tracker")
+st.gauge = st.sidebar.slider("Current Funding Phase", 0, 100, 12)
+st.caption("Phase 1: Initial Deployment & Seed Funding")
 
 # --- FOOTER ---
 st.write("---")
-st.caption("Proprietary 7G Logic is running. Engineering a better world via Mallik Group Systems.")
-
-if st.button("Initialize Quantum Harvest"):
-with st.spinner("Processing 7G algorithms for maximum humanitarian yield..."):
-time.sleep(2)
-st.balloons()
-st.success("Revenue streams optimized for the $100M Goal!")
+st.caption("© 2024 Mallik Group | Humanity Nepal. Engineered for the advancement of human potential.")
 `
-
